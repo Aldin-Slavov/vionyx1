@@ -32,6 +32,7 @@ This is a Bulgarian security company website called "Vionyx" built with a modern
 ✓ Updated contact form with new service options
 ✓ Integrated actual minors declaration document with download functionality
 ✓ Updated minors declaration page with authentic legal content from provided DOC file
+✓ Updated all contact phone numbers to +359 89 566 2600 across all pages
 
 ## User Preferences
 

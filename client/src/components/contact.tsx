@@ -89,7 +89,7 @@ export default function Contact() {
                 <Phone className="text-vionyx-accent text-xl mr-4 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-900">Телефон</h4>
-                  <p className="text-gray-600">+359 2 XXX XXXX</p>
+                  <p className="text-gray-600">+359 89 566 2600</p>
                 </div>
               </div>
               <div className="flex items-start">

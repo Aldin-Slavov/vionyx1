@@ -137,7 +137,7 @@ export default function ServicePricing() {
               <CardContent className="p-6 text-center">
                 <Phone className="h-8 w-8 text-vionyx-accent mx-auto mb-3" />
                 <h3 className="font-semibold text-vionyx-blue mb-2">Обадете се</h3>
-                <p className="text-gray-600 text-lg font-semibold">+359 2 XXX XXXX</p>
+                <p className="text-gray-600 text-lg font-semibold">+359 89 566 2600</p>
                 <p className="text-sm text-gray-500 mt-1">Работно време: 8:00 - 18:00</p>
               </CardContent>
             </Card>

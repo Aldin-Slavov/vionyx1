@@ -113,7 +113,7 @@ export default function MinorsDeclaration() {
                   </p>
                   <div className="bg-white rounded p-4">
                     <p className="text-gray-700 mb-2">
-                      📞 <span className="font-semibold">Телефон:</span> +359 2 XXX XXXX
+                      📞 <span className="font-semibold">Телефон:</span> +359 89 566 2600
                     </p>
                     <p className="text-gray-700 mb-2">
                       ✉️ <span className="font-semibold">Email:</span> info@vionyx.bg
