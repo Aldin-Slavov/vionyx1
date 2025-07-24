@@ -116,7 +116,7 @@ export default function MinorsDeclaration() {
                       📞 <span className="font-semibold">Телефон:</span> +359 89 566 2600
                     </p>
                     <p className="text-gray-700 mb-2">
-                      ✉️ <span className="font-semibold">Email:</span> info@vionyx.bg
+                      ✉️ <span className="font-semibold">Email:</span> savov@vionyx.eu
                     </p>
                     <p className="text-gray-700">
                       🕐 <span className="font-semibold">Работно време:</span> Понеделник - Петък: 8:00 - 18:00

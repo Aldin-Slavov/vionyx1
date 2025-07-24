@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
-                <span>info@vionyx.bg</span>
+                <span>savov@vionyx.eu</span>
               </li>
             </ul>
           </div>

@@ -147,7 +147,7 @@ export default function ServiceDetail() {
                     <p className="mb-2">📞 Обадете се на:</p>
                     <p className="font-semibold">+359 89 566 2600</p>
                     <p className="mt-2">✉️ Изпратете имейл:</p>
-                    <p className="font-semibold">info@vionyx.bg</p>
+                    <p className="font-semibold">savov@vionyx.eu</p>
                   </div>
                 </CardContent>
               </Card>

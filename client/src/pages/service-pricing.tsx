@@ -146,7 +146,7 @@ export default function ServicePricing() {
               <CardContent className="p-6 text-center">
                 <Mail className="h-8 w-8 text-vionyx-accent mx-auto mb-3" />
                 <h3 className="font-semibold text-vionyx-blue mb-2">Изпратете имейл</h3>
-                <p className="text-gray-600 text-lg font-semibold">info@vionyx.bg</p>
+                <p className="text-gray-600 text-lg font-semibold">savov@vionyx.eu</p>
                 <p className="text-sm text-gray-500 mt-1">Отговаряме в рамките на 24 часа</p>
               </CardContent>
             </Card>
