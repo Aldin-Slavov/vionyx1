@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  
   const scrollToServices = () => {
     const element = document.getElementById("services");
     if (element) {
@@ -30,24 +33,24 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Професионални <span className="text-blue-300">охранителни услуги</span>
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Осигуряваме надеждна защита за вашия бизнес, събития и имущество с най-високи стандарти за качество и професионализъм.
+            {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
               className="bg-vionyx-accent hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold h-auto"
             >
-              Заявете оферта
+              {t('hero.contactUs')}
             </Button>
             <Button 
               onClick={scrollToServices}
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-vionyx-blue px-8 py-4 text-lg font-semibold h-auto"
             >
-              Нашите услуги
+              {t('hero.learnMore')}
             </Button>
           </div>
         </div>

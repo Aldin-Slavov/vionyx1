@@ -3,10 +3,13 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     if (location !== "/") {
@@ -36,49 +39,44 @@ export default function Header() {
             </Link>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-baseline space-x-8">
               <button 
                 onClick={() => scrollToSection("home")}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isActive("home") ? "text-gray-900" : "text-gray-600 hover:text-vionyx-blue"
                 }`}
               >
-                Начало
+                {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection("services")}
                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
               >
-                Услуги
+                {t('nav.services')}
               </button>
               <Link href="/pricing" className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors">
-                Цени
+                {t('nav.pricing')}
               </Link>
-              <button 
-                onClick={() => scrollToSection("clients")}
-                className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Клиенти
-              </button>
               <button 
                 onClick={() => scrollToSection("about")}
                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
               >
-                За нас
+                {t('nav.about')}
               </button>
               <button 
                 onClick={() => scrollToSection("contact")}
                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
               >
-                Контакти
+                {t('nav.contact')}
               </button>
               <Link href="/minors-declaration">
                 <Button className="bg-vionyx-accent text-white hover:bg-blue-700">
-                  Декларация за непълнолетни
+                  {t('nav.minorsDeclaration')}
                 </Button>
               </Link>
             </div>
+            <LanguageSwitcher />
           </div>
           
           <div className="md:hidden">
@@ -90,6 +88,9 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-4">
+                  <div className="flex justify-end mb-4">
+                    <LanguageSwitcher />
+                  </div>
                   <button 
                     onClick={() => {
                       scrollToSection("home");
@@ -97,7 +98,7 @@ export default function Header() {
                     }}
                     className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors"
                   >
-                    Начало
+                    {t('nav.home')}
                   </button>
                   <button 
                     onClick={() => {
@@ -106,25 +107,16 @@ export default function Header() {
                     }}
                     className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors"
                   >
-                    Услуги
+                    {t('nav.services')}
                   </button>
                   <Link href="/pricing">
                     <button 
                       onClick={() => setIsOpen(false)}
                       className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors w-full"
                     >
-                      Цени
+                      {t('nav.pricing')}
                     </button>
                   </Link>
-                  <button 
-                    onClick={() => {
-                      scrollToSection("clients");
-                      setIsOpen(false);
-                    }}
-                    className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors"
-                  >
-                    Клиенти
-                  </button>
                   <button 
                     onClick={() => {
                       scrollToSection("about");
@@ -132,7 +124,7 @@ export default function Header() {
                     }}
                     className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors"
                   >
-                    За нас
+                    {t('nav.about')}
                   </button>
                   <button 
                     onClick={() => {
@@ -141,14 +133,14 @@ export default function Header() {
                     }}
                     className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors"
                   >
-                    Контакти
+                    {t('nav.contact')}
                   </button>
                   <Link href="/minors-declaration">
                     <Button 
                       className="bg-vionyx-accent text-white hover:bg-blue-700 w-full justify-start"
                       onClick={() => setIsOpen(false)}
                     >
-                      Декларация за непълнолетни
+                      {t('nav.minorsDeclaration')}
                     </Button>
                   </Link>
                 </nav>

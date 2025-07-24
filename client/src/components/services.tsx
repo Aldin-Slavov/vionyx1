@@ -3,9 +3,11 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Service } from "@shared/schema";
 
 export default function Services() {
+  const { t } = useLanguage();
   const { data: services, isLoading } = useQuery<Service[]>({
     queryKey: ["/api/services"],
   });
@@ -15,9 +17,9 @@ export default function Services() {
       <section id="services" className="py-20 bg-vionyx-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-vionyx-blue mb-4">Нашите услуги</h2>
+            <h2 className="text-4xl font-bold text-vionyx-blue mb-4">{t('services.title')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Предлагаме широк спектър от професионални охранителни услуги, адаптирани към вашите специфични нужди
+              {t('services.subtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -42,9 +44,9 @@ export default function Services() {
     <section id="services" className="py-20 bg-vionyx-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-vionyx-blue mb-4">Нашите услуги</h2>
+          <h2 className="text-4xl font-bold text-vionyx-blue mb-4">{t('services.title')}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Предлагаме широк спектър от професионални охранителни услуги, адаптирани към вашите специфични нужди
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -67,7 +69,7 @@ export default function Services() {
                 </div>
                 <Link href={`/services/${service.slug}`}>
                   <Button variant="link" className="text-vionyx-accent hover:text-blue-700 p-0 font-medium">
-                    Научете повече <ArrowRight className="ml-1 h-4 w-4" />
+                    {t('services.learnMore')} <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
                 </Link>
               </CardContent>
