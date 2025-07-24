@@ -62,6 +62,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Endpoint for downloading minors declaration
+  app.get("/api/download/minors-declaration", (req, res) => {
+    const path = require("path");
+    const filePath = path.join(process.cwd(), "public", "downloads", "deklaracia-ZZD.doc");
+    
+    res.setHeader('Content-Disposition', 'attachment; filename="deklaracia-ZZD.doc"');
+    res.setHeader('Content-Type', 'application/msword');
+    res.sendFile(filePath);
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

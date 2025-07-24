@@ -30,6 +30,8 @@ This is a Bulgarian security company website called "Vionyx" built with a modern
 ✓ Updated navigation to include pricing page
 ✓ Made client logos clickable with links to pricing page
 ✓ Updated contact form with new service options
+✓ Integrated actual minors declaration document with download functionality
+✓ Updated minors declaration page with authentic legal content from provided DOC file
 
 ## User Preferences
 
