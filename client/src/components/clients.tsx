@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Client } from "@shared/schema";
 
@@ -44,11 +45,15 @@ export default function Clients() {
           <p className="text-xl text-gray-600">Доверие от водещи компании и организации</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center mb-16">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-gray-100 rounded-lg p-6 h-24 flex items-center justify-center">
-              <span className="text-gray-400 font-medium">CLIENT {i}</span>
-            </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center mb-16">
+          {clients?.slice(0, 10).map((client, index) => (
+            <Link key={client.id} href="/pricing" className="block">
+              <div className="bg-white rounded-lg p-4 h-20 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                <span className="text-gray-700 font-medium text-sm leading-tight text-center">
+                  {client.name.length > 25 ? client.name.substring(0, 25) + "..." : client.name}
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
 

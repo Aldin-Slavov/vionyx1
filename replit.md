@@ -2,7 +2,34 @@
 
 ## Overview
 
-This is a Bulgarian security company website called "Vionyx" built with a modern full-stack architecture. It's a business website that showcases security services like event security, corporate security, personal protection, and consulting. The application uses React for the frontend, Express.js for the backend, and is configured to use PostgreSQL with Drizzle ORM for data management.
+This is a Bulgarian security company website called "Vionyx" built with a modern full-stack architecture. The website has been updated according to Aldin's proposal to reorganize services based on company licenses and add new clients. It showcases prioritized security services, updated client testimonials, and comprehensive pricing information. The application uses React for the frontend, Express.js for the backend, and is configured to use PostgreSQL with Drizzle ORM for data management.
+
+## Recent Changes (January 2025)
+
+✓ Reorganized services by license priorities as requested:
+  1. Охрана на мероприятия (Event security)
+  2. Охрана на имуществото на физически и юридически лица (Property security)
+  3. Сигнално-охранителна дейност (Alarm security services)
+  4. Охрана на обекти – недвижими имоти (Real estate security)
+  5. Охрана на селскостопанско имущество (Agricultural security)
+  6. Стюардинг и контрол билети (Stewarding and ticket control)
+
+✓ Added new clients from Aldin's list:
+  - 128 СУ "Алберт Айнщайн"
+  - "АРТВЕНТ" ООД
+  - НЧ "Светлина 1940"
+  - Младежки спортен клуб "Пазарджик спортува"
+  - ТЕАТРАЛНО - МУЗИКАЛЕН ПРОДУЦЕНТСКИ ЦЕНТЪР ВАРНА
+  - ДЕЛОЙТ БЪЛГАРИЯ ЕООД
+  - SB TECHNOLOGIES INC
+  - Фондация "Метаарт"
+  - Флешбоун ЕООД
+  - ИНСТИТУТ ПО ОБРАЗОВАНИЕТО
+
+✓ Created new pricing page (/pricing) with active links for comprehensive service information
+✓ Updated navigation to include pricing page
+✓ Made client logos clickable with links to pricing page
+✓ Updated contact form with new service options
 
 ## User Preferences
 
@@ -53,6 +80,7 @@ Preferred communication style: Simple, everyday language.
 ### Pages
 - **Home** (`/`) - Main landing page with all sections
 - **Service Detail** (`/services/:slug`) - Individual service pages
+- **Service Pricing** (`/pricing`) - Comprehensive pricing page with all services
 - **Minors Declaration** (`/minors-declaration`) - Child protection policy
 - **404 Page** - Not found handling
 

@@ -52,6 +52,9 @@ export default function Header() {
               >
                 Услуги
               </button>
+              <Link href="/pricing" className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors">
+                Цени
+              </Link>
               <button 
                 onClick={() => scrollToSection("clients")}
                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
@@ -105,6 +108,14 @@ export default function Header() {
                   >
                     Услуги
                   </button>
+                  <Link href="/pricing">
+                    <button 
+                      onClick={() => setIsOpen(false)}
+                      className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors w-full"
+                    >
+                      Цени
+                    </button>
+                  </Link>
                   <button 
                     onClick={() => {
                       scrollToSection("clients");

@@ -200,12 +200,12 @@ export default function Contact() {
                               <SelectValue placeholder="Изберете услуга" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="event-security">Охрана на събития</SelectItem>
-                              <SelectItem value="corporate-security">Корпоративна охрана</SelectItem>
-                              <SelectItem value="personal-security">Лична охрана</SelectItem>
-                              <SelectItem value="property-security">Охрана на обекти</SelectItem>
-                              <SelectItem value="consulting">Консултантски услуги</SelectItem>
-                              <SelectItem value="transport-security">Транспортна охрана</SelectItem>
+                              <SelectItem value="event-security">Охрана на мероприятия</SelectItem>
+                              <SelectItem value="property-security">Охрана на имуществото на физически и юридически лица</SelectItem>
+                              <SelectItem value="alarm-security">Сигнално-охранителна дейност</SelectItem>
+                              <SelectItem value="real-estate-security">Охрана на обекти – недвижими имоти</SelectItem>
+                              <SelectItem value="agricultural-security">Охрана на селскостопанско имущество</SelectItem>
+                              <SelectItem value="stewarding">Стюардинг и контрол билети</SelectItem>
                             </SelectContent>
                           </Select>
                         </FormControl>

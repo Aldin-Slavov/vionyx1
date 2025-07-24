@@ -27,12 +27,12 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4">Услуги</h4>
             <ul className="space-y-2 text-blue-200">
-              <li><Link href="/services/okhrana-na-sabitiya" className="hover:text-white transition-colors">Охрана на събития</Link></li>
-              <li><Link href="/services/korporativna-okhrana" className="hover:text-white transition-colors">Корпоративна охрана</Link></li>
-              <li><Link href="/services/lichna-okhrana" className="hover:text-white transition-colors">Лична охрана</Link></li>
-              <li><Link href="/services/okhrana-na-obekti" className="hover:text-white transition-colors">Охрана на обекти</Link></li>
-              <li><Link href="/services/konsultantski-uslugi" className="hover:text-white transition-colors">Консултантски услуги</Link></li>
-              <li><Link href="/services/transportna-okhrana" className="hover:text-white transition-colors">Транспортна охрана</Link></li>
+              <li><Link href="/services/okhrana-na-meropriyatia" className="hover:text-white transition-colors">Охрана на мероприятия</Link></li>
+              <li><Link href="/services/okhrana-na-imushtestvo" className="hover:text-white transition-colors">Охрана на имуществото</Link></li>
+              <li><Link href="/services/signalno-okhranitelna-deynost" className="hover:text-white transition-colors">Сигнално-охранителна дейност</Link></li>
+              <li><Link href="/services/okhrana-na-obekti-nedvizhimi" className="hover:text-white transition-colors">Охрана на недвижими имоти</Link></li>
+              <li><Link href="/services/okhrana-na-selskostopansko-imushtestvo" className="hover:text-white transition-colors">Селскостопанска охрана</Link></li>
+              <li><Link href="/services/styuarding-kontrol-bileti" className="hover:text-white transition-colors">Стюардинг услуги</Link></li>
             </ul>
           </div>
           
