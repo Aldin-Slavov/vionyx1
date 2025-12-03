@@ -1,8 +1,9 @@
+// src/components/Hero.tsx
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage(); // Вземаме и езика
   
   const scrollToServices = () => {
     const element = document.getElementById("services");
@@ -19,12 +20,12 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative bg-gradient-to-r from-vionyx-blue to-vionyx-gray text-white py-20 lg:py-32">
+    <section id="home" className="relative bg-gradient-to-r from-vionyx-blue to-vionyx-gray text-green py-20 lg:py-32">
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       <div 
         className="absolute inset-0"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&h=1200')",
+          backgroundImage: "url('/images/services/vnx_hero_img.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
@@ -32,12 +33,22 @@ export default function Hero() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          {/* СЛОГАН - Голям като първоначалното заглавие */}
+          {/* Променен е цветът на текста на слогана на #FFD700 (златист) */}
+          <p className={`text-4xl md:text-6xl font-bold mb-4 leading-tight ${language === 'bg' ? '' : 'italic'}`}> 
+            {language === 'bg' ? 'Нашата мисия е Вашата сигурност' : 'Your Security Is Our Mission'}
+          </p>
+          
+          {/* ОСНОВНО ЗАГЛАВИЕ - Намалено до размера на първоначалното подзаглавие */}
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 leading-tight"> 
             {t('hero.title')}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+          
+          {/* ПОДЗАГЛАВИЕ - Още по-малко */}
+          <p className="text-base md:text-lg lg:text-xl mb-8 text-gray-200"> 
             {t('hero.subtitle')}
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               onClick={scrollToContact}
@@ -48,7 +59,7 @@ export default function Hero() {
             <Button 
               onClick={scrollToServices}
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-vionyx-blue px-8 py-4 text-lg font-semibold h-auto"
+              className="border-2 border-white text-black hover:bg-white hover:text-vionyx-blue px-8 py-4 text-lg font-semibold h-auto"
             >
               {t('hero.learnMore')}
             </Button>

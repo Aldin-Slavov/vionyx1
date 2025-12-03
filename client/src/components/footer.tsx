@@ -1,7 +1,23 @@
+// src/components/Footer.tsx
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Facebook, Linkedin, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Twitter } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  // Функция за скролиране до секция по ID
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else if (window.location.pathname !== '/') {
+      // Ако секцията не е на текущата страница и не сме на началната, пренасочваме
+      window.location.href = `/#${sectionId}`;
+    }
+    // Ако не сме на / и секцията не е намерена, няма действие (или може да се добави логика)
+  };
+
   return (
     <footer className="bg-vionyx-blue text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,14 +25,11 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4">VIONYX</h3>
             <p className="text-blue-200 mb-4">
-              Професионални охранителни услуги с най-високи стандарти за качество и сигурност.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/people/Vionyx-LTD-Security/100057514656993/" className="text-blue-300 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
               </a>
               <a href="#" className="text-blue-300 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
@@ -25,34 +38,51 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-semibold text-lg mb-4">Услуги</h4>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.services')}</h4>
             <ul className="space-y-2 text-blue-200">
-              <li><Link href="/services/okhrana-na-meropriyatia" className="hover:text-white transition-colors">Охрана на мероприятия</Link></li>
-              <li><Link href="/services/okhrana-na-imushtestvo" className="hover:text-white transition-colors">Охрана на имуществото</Link></li>
-              <li><Link href="/services/signalno-okhranitelna-deynost" className="hover:text-white transition-colors">Сигнално-охранителна дейност</Link></li>
-              <li><Link href="/services/okhrana-na-obekti-nedvizhimi" className="hover:text-white transition-colors">Охрана на недвижими имоти</Link></li>
-              <li><Link href="/services/okhrana-na-selskostopansko-imushtestvo" className="hover:text-white transition-colors">Селскостопанска охрана</Link></li>
-              <li><Link href="/services/styuarding-kontrol-bileti" className="hover:text-white transition-colors">Стюардинг услуги</Link></li>
+              <li><Link href="/services/okhrana-na-meropriyatia" className="hover:text-white transition-colors">{t('services.eventSecurity')}</Link></li>
+              <li><Link href="/services/okhrana-na-imushtestvo" className="hover:text-white transition-colors">{t('services.propertySecurity')}</Link></li>
+              <li><Link href="/services/signalno-okhranitelna-deynost" className="hover:text-white transition-colors">{t('services.alarmSecurity')}</Link></li>
+              <li><Link href="/services/okhrana-na-obekti-nedvizhimi" className="hover:text-white transition-colors">{t('services.realEstateSecurity')}</Link></li>
+              <li><Link href="/services/okhrana-na-selskostopansko-imushtestvo" className="hover:text-white transition-colors">{t('services.agriculturalSecurity')}</Link></li>
+              <li><Link href="/services/styuarding-kontrol-bileti" className="hover:text-white transition-colors">{t('services.stewarding')}</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold text-lg mb-4">Компания</h4>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.company')}</h4>
             <ul className="space-y-2 text-blue-200">
-              <li><Link href="/#about" className="hover:text-white transition-colors">За нас</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Нашият екип</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Лицензи</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Кариери</a></li>
-              <li><Link href="/minors-declaration" className="hover:text-white transition-colors">Декларация за непълнолетни</Link></li>
+              {/* Променена връзка "За нас" да скролира до #about */}
+              <li>
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="hover:text-white transition-colors text-left w-full" // text-left и w-full за стил като линк
+                >
+                  {t('footer.aboutUs')}
+                </button>
+              </li>
+              {/* Край на промяната */}
+              <li><a href="#" className="hover:text-white transition-colors">{t('footer.team')}</a></li>
+              <li>
+               <a 
+                href="/downloads/ЛИЦЕНЗ ВИОНИКС.pdf"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors" >
+                 {t('footer.licenses')}
+                </a>
+              </li>
+              <li><Link href="/careers" className="hover:text-white transition-colors">{t('footer.careers')}</Link></li>
+              <li><Link href="/minors-declaration" className="hover:text-white transition-colors">{t('nav.minorsDeclaration')}</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold text-lg mb-4">Контакти</h4>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.contacts')}</h4>
             <ul className="space-y-2 text-blue-200">
               <li className="flex items-center">
                 <MapPin className="mr-2 h-4 w-4" />
-                <span>ул. "Витоша" 123, София</span>
+                <span>ж.к. Дружба, бл.44, София, България</span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-4 w-4" />
@@ -69,17 +99,17 @@ export default function Footer() {
         <div className="border-t border-blue-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-blue-200 text-sm">
-              © 2024 Vionyx. Всички права запазени.
+              {t('footer.rights')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
-                Политика за поверителност
+                {t('footer.privacy')}
               </a>
               <a href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
-                Условия за ползване
+                {t('footer.terms')}
               </a>
               <a href="#" className="text-blue-200 hover:text-white text-sm transition-colors">
-                Cookies
+                {t('footer.cookies')}
               </a>
             </div>
           </div>

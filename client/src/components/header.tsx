@@ -1,3 +1,4 @@
+// src/components/Header.tsx
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,31 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
 
+  // Функция за скролиране към секция или навигация към страница с котва
+  const navigateToSection = (path: string, sectionId?: string) => {
+    const targetPath = sectionId ? `${path}#${sectionId}` : path;
+
+    if (location !== path && sectionId) {
+      // Ако сме на различна страница и има секция, пренасочваме към новия URL с котва
+      window.location.href = targetPath;
+    } else if (location !== path) {
+       // Ако сме на различна страница и НЯМА секция, пренасочваме към новия URL
+       window.location.href = targetPath;
+    } else if (sectionId) {
+      // Ако сме на същата страница и има секция, просто скролираме
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        // Затваряме мобилното меню, ако е отворено
+        setIsOpen(false);
+      }
+    } else {
+        // Ако сме на същата страница и НЯМА секция (напр. за минори), затваряме менюто
+        setIsOpen(false);
+    }
+  };
+
+  // Функция за скролиране (запазена за съвместимост, ако я използват други части)
   const scrollToSection = (sectionId: string) => {
     if (location !== "/") {
       window.location.href = `/#${sectionId}`;
@@ -55,9 +81,27 @@ export default function Header() {
               >
                 {t('nav.services')}
               </button>
-              <Link href="/pricing" className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors">
-                {t('nav.pricing')}
+              
+              {/* Променена връзка "Цени" на "Референции" 
+              <button 
+                 onClick={() => navigateToSection('references')} // <<< Променено
+                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
+              >
+                {t('nav.pricing')} {/* Ще показва "Референции"/"References" благодарение на LanguageContext 
+              </button>
+              Край на промяната */}
+              
+              {/* Променена връзка "Цени" на "Референции" */}
+              <Link 
+                 href="/pricing" // <<< Променено на Link, сочещ към /pricing
+                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
+              >
+                {t('nav.pricing')} {/* Ще показва "Референции"/"References" благодарение на LanguageContext */}
               </Link>
+              {/* Край на промяната */}
+
+
+
               <button 
                 onClick={() => scrollToSection("about")}
                 className="text-gray-600 hover:text-vionyx-blue px-3 py-2 text-sm font-medium transition-colors"
@@ -109,14 +153,19 @@ export default function Header() {
                   >
                     {t('nav.services')}
                   </button>
-                  <Link href="/pricing">
-                    <button 
-                      onClick={() => setIsOpen(false)}
-                      className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors w-full"
-                    >
-                      {t('nav.pricing')}
-                    </button>
-                  </Link>
+                  
+                  {/* Променена връзка "Цени" на "Референции" в мобилното меню */}
+                  <button 
+                     onClick={() => {
+                       navigateToSection('/about', 'references'); // <<< Променено
+                       // setIsOpen(false); // handle се извиква в navigateToSection
+                     }}
+                     className="text-left px-2 py-1 text-sm font-medium text-gray-600 hover:text-vionyx-blue transition-colors w-full"
+                  >
+                    {t('nav.pricing')} {/* Ще показва "Референции"/"References" */}
+                  </button>
+                  {/* Край на промяната */}
+
                   <button 
                     onClick={() => {
                       scrollToSection("about");

@@ -10,16 +10,27 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={toggleLanguage}
-      className="text-white hover:text-vionyx-accent hover:bg-white/10 flex items-center gap-2"
-    >
-      <Globe className="h-4 w-4" />
-      <span className="font-medium">
-        {language === 'bg' ? 'EN' : 'BG'}
-      </span>
-    </Button>
+    <button
+  onClick={toggleLanguage}
+  className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition-colors"
+  aria-label="Switch language"
+>
+  <span className="text-sm font-medium text-gray-700">
+    {language === 'bg' ? '🇧🇬 BG' : '🇺🇸 EN'}
+  </span>
+  <svg 
+    className="w-4 h-4 text-gray-500" 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24"
+  >
+    <path 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      strokeWidth={2} 
+      d="M8 9l4-4 4 4m0 6l-4 4-4-4" 
+    />
+  </svg>
+</button>
   );
 }

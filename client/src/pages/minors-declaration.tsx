@@ -88,7 +88,7 @@ export default function MinorsDeclaration() {
                   <h3 className="font-semibold text-vionyx-blue mb-3 text-lg">📋 Кога се използва декларацията:</h3>
                   <ul className="text-gray-700 space-y-2">
                     <li>• При масови мероприятия с участие на непълнолетни</li>
-                    <li>• Когато родителят не може да придружи детето</li>
+                    <li>• Когато детето не се придружава от родител,декларацията трябва да е нотариално заверена</li>
                     <li>• За деца под 18 години на обществени места след 22:00 ч.</li>
                     <li>• За деца под 14 години на обществени места след 20:00 ч.</li>
                   </ul>
@@ -126,9 +126,10 @@ export default function MinorsDeclaration() {
 
                 <div className="text-center">
                   <a 
-                    href="/api/download/minors-declaration" 
+                    href="/downloads/deklaracia-ZZD.doc" 
                     target="_blank"
                     rel="noopener noreferrer"
+                    download="deklaracia-ZZD.doc" 
                   >
                     <Button className="bg-vionyx-accent hover:bg-blue-700 text-white px-8 py-3 text-lg">
                       <Download className="mr-2 h-5 w-5" />
